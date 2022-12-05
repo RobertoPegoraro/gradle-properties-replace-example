@@ -1,0 +1,20 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+plugins {
+    id 'application'
+}
+
+application {
+    mainClass = 'com.example.myClass'
+}
+
+dependencies {
+}
+
+processResources {
+    filesMatching('**/application.properties') {
+        filter ReplaceTokens, tokens: [
+                myPropName: myPropName
+        ]
+    }
+}
